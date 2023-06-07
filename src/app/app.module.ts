@@ -27,6 +27,7 @@ import { CategoryUpdateComponent } from './pages/Admin/Category/category-update/
 import { UserListComponent } from './pages/Admin/User/user-list/user-list.component';
 import { UserUpdateComponent } from './pages/Admin/User/user-update/user-update.component';
 import { SearchComponent } from './components/search/search.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { SearchComponent } from './components/search/search.component';
     CategoryUpdateComponent,
     UserListComponent,
     UserUpdateComponent,
-    SearchComponent
+    SearchComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
