@@ -1,0 +1,62 @@
+.container {
+
+    color: white;
+    background-color: #252525;
+    padding: 20px;
+}
+
+.footer-content {
+    margin: 5px 60px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-box {
+    margin-bottom: 20px;
+}
+
+.footer-box img {
+    width: 60px;
+    height: 60px;
+}
+
+.footer-box h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-box ul li {
+    margin-bottom: 5px;
+}
+
+.footer-form {
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-form input[type="email"],
+.footer-form textarea {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.footer-form button {
+    color: white;
+    padding: 5px 10px;
+
+}
+
+.footer-end {
+    text-align: center;
+    margin-top: 20px;
+}
