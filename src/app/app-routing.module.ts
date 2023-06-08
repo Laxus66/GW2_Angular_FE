@@ -20,7 +20,7 @@ import { UserUpdateComponent } from './pages/Admin/User/user-update/user-update.
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { ComicAddComponent } from './pages/Admin/Comic/comic-add/comic-add.component'
 import { HomePageComponent } from './pages/Base/home-page/home-page.component';
-// import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component';
+import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -36,7 +36,6 @@ const routes: Routes = [
   },
   {
     path: 'admin', component: AdminComponent, children: [
-      { path: 'dashboard', component: DashboardComponent },
       { path: '', component: DashboardComponent },
       { path: 'comic', component: ComicListComponent },
       { path: 'comic/add', component: ComicAddComponent },
