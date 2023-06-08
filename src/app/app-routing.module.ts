@@ -19,11 +19,12 @@ import { UserListComponent } from './pages/Admin/User/user-list/user-list.compon
 import { UserUpdateComponent } from './pages/Admin/User/user-update/user-update.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { ComicAddComponent } from './pages/Admin/Comic/comic-add/comic-add.component';
+import { HomePageComponent } from './pages/Base/home-page/home-page.component';
 
 const routes: Routes = [
   {
     path: '', component: BaseComponent, children: [
-      { path: '', component: ComicPageComponent },
+      { path: '', component: HomePageComponent },
       { path: 'comic', component: ComicPageComponent },
       { path: 'comic/:id', component: ComicPageDetailComponent },
       { path: 'comic/:id/chapter', component: ComicChapterComponent },
