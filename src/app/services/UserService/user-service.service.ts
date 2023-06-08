@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUser } from 'src/app/interfaces/user';
+import { ISignin, ISignup } from 'src/app/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,10 @@ import { IUser } from 'src/app/interfaces/user';
 export class UserServiceService {
 
   constructor(private http: HttpClient) { }
-  signIn(account: IUser): Observable<IUser[]> {
-    return this.http.post<IUser[]>(`http://localhost:8088/signin`, account)
+  signIn(account: ISignin): Observable<ISignin[]> {
+    return this.http.post<ISignin[]>(`http://localhost:8088/signin`, account)
   }
-  signUn(account: IUser): Observable<IUser[]> {
-    return this.http.post<IUser[]>(`http://localhost:8088/signup`, account)
+  signUn(account: ISignup): Observable<ISignup[]> {
+    return this.http.post<ISignup[]>(`http://localhost:8088/signup`, account)
   }
 }
