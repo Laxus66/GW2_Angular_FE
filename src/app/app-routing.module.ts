@@ -34,6 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'admin', component: AdminComponent, children: [
+      { path: 'dashboard', component: DashboardComponent },
       { path: '', component: DashboardComponent },
       { path: 'comic', component: ComicListComponent },
       { path: 'comic/add', component: ComicAddComponent },
