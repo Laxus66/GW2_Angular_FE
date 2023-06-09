@@ -22,7 +22,7 @@
                 <td>{{ comic.name }}</td>
                 <td><a class="text-heading font-semibold" href="#">{{ getAuthorName(comic.author_id) }}</a></td>
                 <td class="text-truncate" style="max-width: 200px;">{{ comic.description }}</td>
-                <td><img src="{{ comic.image }}" alt=""></td>
+                <td><img src="{{ comic.images[0].image }}" alt=""></td>
                 <td><a class="text-heading font-semibold" href="#">{{ getCategoryName(comic.cate_id) }}</a></td>
                 <td class="text-left">
                     <button class="btn btn-update bg-primary btn-sm btn-neutral">
