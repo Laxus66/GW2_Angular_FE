@@ -32,6 +32,7 @@ const routes: Routes = [
       { path: 'signup', component: SignUpComponent },
     ]
   },
+  
   {
     path: 'admin', component: AdminComponent, children: [
       { path: '', component: DashboardComponent },
