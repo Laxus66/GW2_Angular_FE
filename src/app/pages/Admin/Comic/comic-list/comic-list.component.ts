@@ -48,12 +48,12 @@ export class ComicListComponent implements OnInit {
     );
   }
 
-  getCategoryName(categoryId: number): string {
-    const category = this.categories.find(cat => cat.id === categoryId);
+  getCategoryName(categoryId: any): string {
+    const category = this.categories.find(cate => cate.id === categoryId);
     return category ? category.name : '';
   }
 
-  getAuthorName(authorId: number): string {
+  getAuthorName(authorId: any): string {
     const author = this.authors.find(auth => auth.id === authorId);
     return author ? author.name : '';
   }
