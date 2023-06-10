@@ -1,1 +1,36 @@
-<p>comic-update works!</p>
+<div class="container-fluid">
+    <form (ngSubmit)="onHandleSubmit()">
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" class="form-control" id="id" name="id" disabled>
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="comic.name">
+        </div>
+        <div class="form-group" *ngFor="let author of authors">
+            <label for="author">Author:</label>
+            <select class="form-control" id="author_id" name="author_id" [(ngModel)]="comic.author_id">
+                <option [value]="author.id" [selected]="author.id === comic.author_id">{{ author.name }}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" rows="5"
+                [(ngModel)]="comic.description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="text" class="form-control" id="image" name="image" [(ngModel)]="comic.images[0].image">
+        </div>
+        <div class="form-group" *ngFor="let category of categories">
+            <label for="author">Category:</label>
+            <select class="form-control" id="cate_id" name="cate_id" [(ngModel)]="comic.cate_id">
+                <option [value]="category.id" [selected]="category.id === comic.cate_id">{{ category.name }}</option>
+            </select>
+        </div>
+        <button type="submit" class=" m-3 btn btn-primary">Update</button>
+        <button class="btn btn-update bg-success btn-neutral"><a href="admin/comic">List Comic</a></button>
+    </form>
+</div>
