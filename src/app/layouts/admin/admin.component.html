@@ -1,2 +1,99 @@
-<p>admin works!</p>
-<router-outlet />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="container">
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <!-- <i class="fa-solid fa-face-grin-wide" style="color: #ffffff;"></i> -->
+            <span> Hello Admin</span>
+        </a>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a routerLink="dashboard">
+                    <i class="fa-solid fa-house-user" style="color: #ffffff;"></i>
+                    <span class="text"> Dashboard</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a routerLink="comic">
+                    <i class="fa-solid fa-book-open" style="color: #ffffff;"></i>
+                    <span class="text"> Comic</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a routerLink="category">
+                    <i class="fa-solid fa-book-bible"></i>
+                    <span class="text"> Category</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a routerLink="author">
+                    <i class="fa-solid fa-user-pen" style="color: #ffffff;"></i>
+                    <span class="text"> Author </span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a routerLink="user">
+                    <i class="fa-solid fa-user-gear" style="color: #ffffff;"></i>
+                    <span class="text"> User</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-flush-a">
+            <li class="list-group-item-a">
+                <a href="#">
+                    <i class="fa-solid fa-gear" style="color: #ffffff;"></i>
+                    <span class="text"> Settings</span>
+                </a>
+            </li>
+            <li class="list-group-item-a">
+                <a href="#" class="logout"> <i class="fa-solid fa-arrow-right-from-bracket"></i> <span
+                        class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav style="width: 1255px;">
+            <i class='bx bx-menu'></i>
+            <!-- <a href="#" class="nav-link">Categories</a> -->
+            <form action="#">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell'></i>
+                <a href="#" class="num">Admin</a>
+            </a>
+            <a href="#" class="profile">
+                <img src="https://yt3.googleusercontent.com/6I8aDshsIEk5aHRZLI_R8UyoI11DEby5nddqfqTIDKhnb_id2FVv3aBRLxZs9NXMbf7VJGD03Q=s900-c-k-c0x00ffffff-no-rj"
+                    alt="admin">
+            </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main style="width: 1255px;">
+            <router-outlet />
+
+        </main>
+
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+    <!-- <app-footer /> -->
+</div>
