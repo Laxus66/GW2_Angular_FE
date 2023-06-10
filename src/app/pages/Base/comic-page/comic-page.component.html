@@ -1,1 +1,103 @@
-<p>comic-page works!</p>
+<body>
+    <div class="homePage">
+        <h4 style="padding:30px 0 0 30px;margin-bottom:-10px ;">Truyen Hay</h4>
+        <div class="truyen-hay">
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+            <div class="hay">
+                <img src="http://toplist.vn/images/800px/tu-truyen-tranh-360-68615.jpg" alt="">
+                <br>
+                <b>Conan</b>
+                <br>
+                <b>Truong 1027</b>
+            </div>
+
+        </div>
+        <div class="truyen-moi">
+            <div>
+                <h4>Truyện Mới Cập Nhật</h4>
+            </div>
+            <div class="truyen" *ngFor="let product of product">
+                <div class="hot-time">
+                    <b class="time">{{product.time}}</b>
+                    <b class="hot">Hot</b>
+                </div>
+                <div class="name">
+                    <a routerLink="comic/{{product.id}}">
+                        <img src={{product.image}} alt="image" class="image">
+                        <b>{{product.name}}</b>
+                    </a>
+                </div>
+                <p style="text-align: center;" class="chuong">Chương 36</p>
+            </div>
+        </div>
+    </div>
+</body>
