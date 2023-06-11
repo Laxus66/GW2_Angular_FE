@@ -1,1 +1,23 @@
-<p>user-list works!</p>
+<h2>Danh sách người dùng</h2>
+<table class="table table-borederd">
+  <thead>
+    <tr>
+      <th >Stt</th>
+      <th >Tên</th>
+      <th >Email</th>
+      <th >Role</th>
+      <th ></th>
+    </tr>
+  </thead>
+  <tbody *ngIf="users && users.length">
+    <tr *ngFor="let user of users, index as i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <button class="btn btn-danger">Xóa</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

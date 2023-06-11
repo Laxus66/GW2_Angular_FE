@@ -11,13 +11,11 @@ export class UserServiceService {
 
   constructor(private http: HttpClient) {}
 
-
   setLoggedInUser(user: IUser | null) {
     this.loggedInUser.next(user);
     localStorage.setItem('loggedInUser', JSON.stringify(user));
     this.loggedInUser.next(user);
   }
-
 
   getLoggedInUser(): Observable<IUser | null> {
     return this.loggedInUser.asObservable();
@@ -25,7 +23,7 @@ export class UserServiceService {
 
   logout() {
     localStorage.removeItem('loggedInUser');
-    this.loggedInUser.next(null); 
+    this.loggedInUser.next(null);
   }
 
   signIn(account: ISignin): Observable<IUser> {
@@ -36,5 +34,9 @@ export class UserServiceService {
       `http://localhost:8088/api/signup`,
       account
     );
+  }
+
+  getUsers(): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`http://localhost:8088/api/users`);
   }
 }

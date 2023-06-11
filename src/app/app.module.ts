@@ -31,6 +31,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 import { HomePageComponent } from './pages/Base/home-page/home-page.component';
+import { CommonModule } from '@angular/common';
 
 // import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component';
 
@@ -70,7 +71,8 @@ import { HomePageComponent } from './pages/Base/home-page/home-page.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
