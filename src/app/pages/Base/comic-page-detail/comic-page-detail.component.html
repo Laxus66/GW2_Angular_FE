@@ -1,11 +1,11 @@
 <body>
     <div class="trang-chu">
-        <p>Trang chủ / Thất Hình Đại Tội</p>
+        <p>Trang chủ / {{comic.name}}</p>
         <div class="img">
-            <img src="https://tse3.mm.bing.net/th?id=OIP.IpqCnna7oRiK-wY3NFQalQHaEK&pid=Api&P=0&h=180" alt="">
+            <img src="{{comic.image}}" alt="image">
         </div>
         <div class="thong-tin">
-            <h5>Thất Hình Đại Tội</h5>
+            <h5>{{comic.name}}</h5>
             <div class="tac-gia">
                 <table>
                     <tr>
@@ -32,7 +32,7 @@
                             </svg>
                             Tác Giả
                         </th>
-                        <th>Suzuki Nakaba</th>
+                        <th>{{author.author_id}}</th>
                     </tr>
                     <tr>
                         <th>
@@ -118,15 +118,7 @@
                         Giới thiệu
                     </p>
                     <p>
-                        Bộ truyện được đăng dài kì trên tạp chí Weekly Shōnen Magazine từ số 45 năm 2012 và được
-                        Kodansha xuất bản thành 41 tập tankōbon. Lấy cảnh ở Anh thời trung cổ, thời kỳ mà các "Thánh kỵ
-                        sĩ" có nhiều quyền lực trong vương quốc của mình và kết hợp với nhiều yếu tố thần thoại châu Âu.
-
-                        Tính đến tháng 1 năm 2015, đã có hơn 10 triệu bản đã được bán ra thị trường. Và được Nhà xuất
-                        bản Kodansha ở Bắc Mỹ phát hành tập đầu tiên vào ngày 11 tháng 3 năm 2014[1][2].
-
-                        Một series anime đã được A-1 Pictures sản xuất, bắt đầu phát sóng tại Nhật Bản vào ngày 5 tháng
-                        10 năm 2014.
+                        {{comic.description}}
                     </p>
                 </div>
                 <hr>
