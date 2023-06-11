@@ -9,10 +9,10 @@ import { IUser } from 'src/app/interfaces/user';
 export class UserServiceService {
 
   constructor(private http: HttpClient) { }
-  signIn(account: IUser): Observable<IUser[]> {
-    return this.http.post<IUser[]>(`http://localhost:8088/signin`, account)
+  signIn(account: any): Observable<any> {
+    return this.http.post(`http://localhost:8088/api/signin`, account)
   }
-  signUn(account: IUser): Observable<IUser[]> {
-    return this.http.post<IUser[]>(`http://localhost:8088/signup`, account)
+  signUp(account: IUser): Observable<IUser[]> {
+    return this.http.post<IUser[]>(`http://localhost:8088/api/signup`, account)
   }
 }

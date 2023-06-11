@@ -33,6 +33,7 @@
                   class="form-control"
                   formControlName="email"
                 />
+                <div *ngIf="emailErrorMessage && formSignup.get('email')?.value" class="error-message">{{ emailErrorMessage }}</div>
                 <div
                   *ngIf="
                     formSignup.get('email')?.hasError('required') &&
