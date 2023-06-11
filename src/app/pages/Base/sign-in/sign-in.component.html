@@ -15,7 +15,31 @@
             <form [formGroup]="formSignin" (ngSubmit)="onHandleSubmit()">
               <label class="form-label" for="form2Example1">Email</label>
               <div class="form-outline mb-4">
-                <input type="email" name="email" class="form-control" />
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  formControlName="email"
+                />
+                <div *ngIf="emailErrorMessage && formSignin.get('email')?.value" class="error-message">{{ emailErrorMessage }}</div>
+                <div
+                  *ngIf="
+                    formSignin.get('email')?.hasError('required') &&
+                    (formSignin.get('email')?.touched ||
+                      formSignin.get('email')?.dirty)
+                  "
+                >
+                  Email is required
+                </div>
+                <div
+                  *ngIf="
+                    formSignin.get('email')?.hasError('email') &&
+                    (formSignin.get('email')?.touched ||
+                      formSignin.get('email')?.dirty)
+                  "
+                >
+                  Email invalid
+                </div>
               </div>
 
               <div class="form-outline mb-4">
@@ -24,31 +48,29 @@
                   type="password"
                   name="password"
                   class="form-control"
+                  formControlName="password"
                 />
+
+                <div *ngIf="passwordErrorMessage && formSignin.get('password')?.value" class="error-message">{{ passwordErrorMessage }}</div>
+                <div
+                  *ngIf="
+                    formSignin.get('password')?.hasError('required') &&
+                    (formSignin.get('password')?.touched ||
+                      formSignin.get('password')?.dirty)
+                  "
+                >
+                  Password is required
+                </div>
               </div>
 
               <div class="row mb-4">
-                <div class="col d-flex justify-content-center">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      checked
-                    />
-                    <label class="form-check-label" for="form2Example31">
-                      Remember me
-                    </label>
-                  </div>
-                </div>
-
                 <div class="col">
                   You don't have an account
                   <a routerLink="/signup">Create account</a>
                 </div>
               </div>
 
-              <button type="button" class="btn btn-primary btn-block mb-4">
+              <button type="submit" class="btn btn-primary btn-block mb-4">
                 Sign in
               </button>
             </form>

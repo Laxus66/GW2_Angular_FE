@@ -1,18 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ISignin, ISignup } from 'src/app/interfaces/user';
+import { Observable, Subject } from 'rxjs';
+import { ISignin, ISignup, IUser } from 'src/app/interfaces/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserServiceService {
+  private loggedInUser: Subject<IUser> = new Subject<IUser>();
 
-  constructor(private http: HttpClient) { }
-  signIn(account: ISignin): Observable<ISignin[]> {
-    return this.http.post<ISignin[]>(`http://localhost:8088/signin`, account)
+  constructor(private http: HttpClient) {}
+
+  setLoggedInUser(user: IUser) {
+    this.loggedInUser.next(user);
   }
-  signUn(account: ISignup): Observable<ISignup[]> {
-    return this.http.post<ISignup[]>(`http://localhost:8088/signup`, account)
+
+  getLoggedInUser(): Observable<IUser> {
+    return this.loggedInUser.asObservable();
+  }
+
+  signIn(account: ISignin): Observable<IUser> {
+    return this.http.post<IUser>(`http://localhost:8088/api/signin`, account);
+  }
+  signUp(account: ISignup[]): Observable<ISignup[]> {
+    return this.http.post<ISignup[]>(
+      `http://localhost:8088/api/signup`,
+      account
+    );
   }
 }
