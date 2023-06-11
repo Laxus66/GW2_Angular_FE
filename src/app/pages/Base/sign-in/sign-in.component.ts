@@ -27,7 +27,7 @@ export class SignInComponent {
     private router: Router
   ) {}
 
-
+  
   onHandleSubmit() {
     const emailInput = this.formSignin.get('email');
     const passwordInput = this.formSignin.get('password');
