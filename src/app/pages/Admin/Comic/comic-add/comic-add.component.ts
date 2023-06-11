@@ -17,7 +17,7 @@ export class ComicAddComponent implements OnInit {
     author_id: 0,
     description: '',
     cate_id: 0,
-    image: ''
+    images: []
   };
   categories: ICategory[] = [];
   authors: IAuthor[] = [];
