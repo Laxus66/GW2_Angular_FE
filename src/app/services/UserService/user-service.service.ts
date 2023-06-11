@@ -7,16 +7,25 @@ import { ISignin, ISignup, IUser } from 'src/app/interfaces/user';
   providedIn: 'root',
 })
 export class UserServiceService {
-  private loggedInUser: Subject<IUser> = new Subject<IUser>();
+  private loggedInUser: Subject<IUser | null> = new Subject<IUser | null>();
 
   constructor(private http: HttpClient) {}
 
-  setLoggedInUser(user: IUser) {
+
+  setLoggedInUser(user: IUser | null) {
+    this.loggedInUser.next(user);
+    localStorage.setItem('loggedInUser', JSON.stringify(user));
     this.loggedInUser.next(user);
   }
 
-  getLoggedInUser(): Observable<IUser> {
+
+  getLoggedInUser(): Observable<IUser | null> {
     return this.loggedInUser.asObservable();
+  }
+
+  logout() {
+    localStorage.removeItem('loggedInUser');
+    this.loggedInUser.next(null); 
   }
 
   signIn(account: ISignin): Observable<IUser> {

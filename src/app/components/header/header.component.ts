@@ -14,10 +14,22 @@ export class HeaderComponent implements OnInit {
   constructor(private userService: UserServiceService) {}
 
   ngOnInit(): void {
-    this.userService.getLoggedInUser().subscribe((user: IUser) => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
       this.isLoggedIn = true;
-      this.userName = user.name;
+      this.userName = JSON.parse(loggedInUser).name;
+    }
+
+    this.userService.getLoggedInUser().subscribe((user: IUser | null) => {
+      if (user) {
+        this.isLoggedIn = true;
+        this.userName = user.name;
+      }
     });
   }
+  logout() {
+    this.userService.logout();
+    this.isLoggedIn = false; 
+    this.userName = ''; 
+  }
 }
- 
