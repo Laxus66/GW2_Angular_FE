@@ -4,8 +4,7 @@ import { ICategory } from 'src/app/interfaces/category';
 import { IComic } from 'src/app/interfaces/comic';
 import { ComicServiceService } from 'src/app/services/ComicService/comic-service.service';
 import { CategoryServiceService } from 'src/app/services/CategoryService/category-service.service';
-import { AuthorServiceService } from 'src/app/services/AuthorService/author-service.service';
-import { IAuthor } from 'src/app/interfaces/author';
+
 
 @Component({
   selector: 'app-category-list',
@@ -22,14 +21,15 @@ export class CategoryListComponent {
   }
 
   getCategories() {
-    this.categoryService.getAllCategories().subscribe((data) => {
-      this.categories = data;
+    this.categoryService.getAllCategories().subscribe((data: any) => {
+      this.categories = data.categories;
+      console.log();
     });
   }
 
   removeItem(id: any) {
     this.categoryService.removeCategory(id).subscribe(() => {
-      this.categories = this.categories.filter(cate => cate.id !== id);
+      this.categories = this.categories.filter(cate => cate._id !== id);
     });
   }
 }

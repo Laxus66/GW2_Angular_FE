@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ICategory } from 'src/app/interfaces/category';
 import { CategoryServiceService } from 'src/app/services/CategoryService/category-service.service';
@@ -8,40 +8,35 @@ import { CategoryServiceService } from 'src/app/services/CategoryService/categor
   templateUrl: './category-update.component.html',
   styleUrls: ['./category-update.component.scss']
 })
-export class CategoryUpdateComponent {
-  categories: any = '';
+export class CategoryUpdateComponent implements OnInit {
+  category: ICategory = {
+    name: ''
+  };
 
   constructor(
     private route: ActivatedRoute,
     private categoryService: CategoryServiceService
   ) { }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const cateId = +params['id'];
-      this.getCategoryDetails(cateId);
-    });
-
-    this.getCategories();
-  }
-  getCategoryDetails(id: number) {
-    this.categoryService.getOneCategory(id).subscribe((data) => {
-      this.categories = data;
+      const categoryId = params['id'];
+      console.log(categoryId);
+      this.getCategoryDetails(categoryId);
     });
   }
 
-  getCategoryName(categoryId: number): string {
-    const category = this.categories.find((c: any) => c.id === categoryId);
-    return category ? category.name : '';
-  }
-
-  getCategories() {
-    this.categoryService.getAllCategories().subscribe((data) => {
-      this.categories = data;
+  getCategoryDetails(id: string) {
+    this.categoryService.getOneCategory(id).subscribe((data: any) => {
+      this.category = data;
+      console.log(data);
     });
   }
+
   onHandleSubmit() {
-    this.categoryService.updateCategory(this.categories).subscribe(product => {
-      console.log(product);
+    console.log(this.category);
+    this.categoryService.updateCategory(this.category).subscribe(data => {
+      console.log(data);
     })
   }
 }
