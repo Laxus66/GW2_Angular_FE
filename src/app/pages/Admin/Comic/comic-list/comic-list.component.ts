@@ -45,11 +45,12 @@ export class ComicListComponent implements OnInit {
     return author ? author.name : '';
   }
 
-  removeItem(id: any) {
+  removeItem(id: any): void {
     console.log(id);
     this.comicService.removeComic(id).subscribe(() => {
       this.comics = this.comics.filter(comic => comic._id !== id);
     });
   }
+
 }
 

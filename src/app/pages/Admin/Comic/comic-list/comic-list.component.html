@@ -1,4 +1,5 @@
 <button class="btn btn-update bg-success btn-sm btn-neutral"><a routerLink="add">Add Comic</a></button>
+
 <div class="table-responsive">
     <table class="table table-hover table-nowrap">
         <thead class="thead-light">
@@ -16,13 +17,17 @@
             <tr *ngFor="let comic of comics">
                 <td>{{ comic._id }}</td>
                 <td>{{ comic.name }}</td>
-                <td><a class="text-heading font-semibold" href="#">{{ comic.author_id }}</a></td>
+                <!-- <td>{{ comic.author_id ? getAuthorName(comic.author_id) : '' }}</td>
                 <td class="text-truncate" style="max-width: 200px;">{{ comic.description }}</td>
-                <td><img src="{{ comic.images[0].image }}" alt=""></td>
-                <td><a class="text-heading font-semibold" href="#">{{ comic.category_id }}</a></td>
+                <td><img src="{{ comic.images[0]?.image }}" alt=""></td>
+                <td>{{ comic.category_id ? getCategoryName(comic.category_id) : '' }}</td> -->
+                <td>{{ comic.author_id }}</td>
+                <td class="text-truncate" style="max-width: 200px;">{{ comic.description }}</td>
+                <td><img src="" alt=""></td>
+                <td>{{ comic.category_id }}</td>
                 <td class="text-left">
                     <button class="btn btn-update bg-primary btn-sm btn-neutral">
-                        <a routerLink="{{ comic._id }}/update">Edit</a>
+                        <a [routerLink]="[comic._id, 'update']">Edit</a>
                     </button>
                     <button class="btn btn-delete btn-sm bg-danger btn-neutral"
                         (click)="removeItem(comic._id)">Delete</button>

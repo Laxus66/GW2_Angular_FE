@@ -12,9 +12,10 @@
                 <td>{{ index +1 }}</td>
                 <td>{{ category.name }}</td>
                 <td class="text-left">
-                    <button class="btn btn-update bg-primary btn-sm btn-neutral">
-                        <a routerLink="{{ category._id }}/update">Edit</a>
-                    </button>
+                    <a routerLink="{{ category._id }}/update"><button
+                            class="btn btn-update bg-primary btn-sm btn-neutral">
+                            Edit
+                        </button></a>
                     <button class="btn btn-delete btn-sm bg-danger btn-neutral">Delete</button>
 
                 </td>
