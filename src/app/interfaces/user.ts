@@ -1,5 +1,5 @@
 export interface ISignup {
-    _id?: number;
+    _id?: string;
     name?: string;
     email: string;
     follow_id?: number[];
@@ -7,7 +7,7 @@ export interface ISignup {
 }
 
 export interface ISignin {
-    _id?: number,
+    _id?: string,
     email: string,
     password: string
 }
