@@ -7,24 +7,15 @@ import { CategoryServiceService } from 'src/app/services/CategoryService/categor
   templateUrl: './category-add.component.html',
   styleUrls: ['./category-add.component.scss']
 })
-export class CategoryAddComponent implements OnInit {
+export class CategoryAddComponent {
   categories: any = {
     name: ""
   };
 
   constructor(private categoryService: CategoryServiceService) { }
 
-  ngOnInit() {
-    this.getCategories();
-  }
-
-  getCategories() {
-    this.categoryService.getAllCategories().subscribe((data) => {
-      this.categories = data;
-    });
-  }
-
   onHandleSubmit() {
+    console.log(this.categories);
     this.categoryService.createCategory(this.categories).subscribe((data) => {
       console.log(data);
     });

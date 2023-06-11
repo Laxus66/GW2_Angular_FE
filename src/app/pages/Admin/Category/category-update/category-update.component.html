@@ -1,14 +1,14 @@
 <div class="container-fluid">
     <form (ngSubmit)="onHandleSubmit()">
-        <div class=" form-group">
+        <div class="form-group">
             <label for="id">ID:</label>
-            <input type="text" class="form-control" id="id" name="id" readonly disabled>
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="category._id" readonly disabled>
         </div>
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" [(ngModel)]="categories.name" id="name" name="name">
+            <input type="text" class="form-control" [(ngModel)]="category.name" id="name" name="name">
         </div>
-        <button type="submit" class=" m-3 btn btn-primary">Update</button>
-        <button class="btn btn-update bg-success btn-neutral"><a href="admin/category">List Category</a></button>
+        <button type="submit" class="m-3 btn btn-primary">Update</button>
+        <button class="btn btn-update bg-success btn-neutral" routerLink="/admin/category">List Category</button>
     </form>
 </div>
