@@ -1,5 +1,5 @@
 export interface ISignup {
-    id?: number;
+    _id?: number;
     name?: string;
     email: string;
     follow_id?: number[];
@@ -7,16 +7,16 @@ export interface ISignup {
 }
 
 export interface ISignin {
-    id?: number,
+    _id?: number,
     email: string,
     password: string
 }
 
 export interface IUser {
     _id: string;
-  name: string;
-  email: string;
-  role: string;
-  createdAt: string;
-  updatedAt: string;
+    name: string;
+    email: string;
+    role: string;
+    createdAt: string;
+    updatedAt: string;
 }
