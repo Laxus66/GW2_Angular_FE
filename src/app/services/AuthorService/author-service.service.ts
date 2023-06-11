@@ -12,16 +12,16 @@ export class AuthorServiceService {
   getAllAuthors(): Observable<IAuthor[]> {
     return this.http.get<IAuthor[]>(`http://localhost:8088/api/author`)
   }
-  getOneAuthor(_id: any): Observable<IAuthor[]> {
+  getOneAuthor(_id: string): Observable<IAuthor[]> {
     return this.http.get<IAuthor[]>(`http://localhost:8088/api/author/${_id}`)
   }
-  removeAuthor(_id: any): Observable<IAuthor[]> {
+  removeAuthor(_id: string): Observable<IAuthor[]> {
     return this.http.delete<IAuthor[]>(`http://localhost:8088/api/author/${_id}`)
   }
   updateAuthor(author: IAuthor): Observable<IAuthor[]> {
-    return this.http.put<IAuthor[]>(`http://localhost:8088/api/author/${author._id}`, author)
+    return this.http.put<IAuthor[]>(`http://localhost:8088/api/author/${author._id}/update`, author)
   }
   createAuthor(author: IAuthor): Observable<IAuthor[]> {
-    return this.http.post<IAuthor[]>(`http://localhost:8088/api/author`, author)
+    return this.http.post<IAuthor[]>(`http://localhost:8088/api/author/add`, author)
   }
 }
