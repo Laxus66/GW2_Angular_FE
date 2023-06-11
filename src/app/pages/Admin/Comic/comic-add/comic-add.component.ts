@@ -14,9 +14,9 @@ import { ComicServiceService } from 'src/app/services/ComicService/comic-service
 export class ComicAddComponent implements OnInit {
   comic: IComic = {
     name: '',
-    author_id: 0,
+    author_id: '',
     description: '',
-    cate_id: 0,
+    category_id: '',
     images: []
   };
   categories: ICategory[] = [];
