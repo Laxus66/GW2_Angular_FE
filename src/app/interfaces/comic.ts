@@ -1,5 +1,5 @@
 export interface IComic {
-    id?: number;
+    _id?: number;
     name: string;
     author_id?: number;
     images: Array<{
