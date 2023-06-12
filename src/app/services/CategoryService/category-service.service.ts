@@ -12,16 +12,18 @@ export class CategoryServiceService {
   getAllCategories(): Observable<ICategory[]> {
     return this.http.get<ICategory[]>(`http://localhost:8088/api/category`)
   }
-  getOneCategory(id: any): Observable<ICategory[]> {
-    return this.http.get<ICategory[]>(`http://localhost:8088/api/category/${id}`)
+
+  getOneCategory(_id: string): Observable<ICategory[]> {
+    return this.http.get<ICategory[]>(`http://localhost:8088/api/category/${_id}`)
   }
-  removeCategory(id: any): Observable<ICategory[]> {
-    return this.http.delete<ICategory[]>(`http://localhost:8088/api/category/${id}`)
+  removeCategory(_id: string): Observable<ICategory[]> {
+    return this.http.delete<ICategory[]>(`http://localhost:8088/api/category/${_id}`)
   }
   updateCategory(category: ICategory): Observable<ICategory[]> {
-    return this.http.put<ICategory[]>(`http://localhost:8088/api/category/${category.id}`, category)
+    return this.http.put<ICategory[]>(`http://localhost:8088/api/category/${category._id}/update`, category)
   }
   createCategory(category: ICategory): Observable<ICategory[]> {
-    return this.http.post<ICategory[]>(`http://localhost:8088/api/category`, category)
+    return this.http.post<ICategory[]>(`http://localhost:8088/api/category/add`, category)
+
   }
 }

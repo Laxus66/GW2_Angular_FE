@@ -1,7 +1,4 @@
 export interface IAuthor {
-    id?: number;
+    _id?: string;
     name: string;
-    description?: string;
-    image?: string;
-    comic_id?: number;
 }

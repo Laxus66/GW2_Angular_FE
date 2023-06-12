@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+
+
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
@@ -28,7 +30,11 @@ import { UserListComponent } from './pages/Admin/User/user-list/user-list.compon
 import { UserUpdateComponent } from './pages/Admin/User/user-update/user-update.component';
 import { SearchComponent } from './components/search/search.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component';
+import { HomePageComponent } from './pages/Base/home-page/home-page.component';
+import { CommonModule } from '@angular/common';
+
+// import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -56,13 +62,17 @@ import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component'
     UserUpdateComponent,
     SearchComponent,
     ErrorPageComponent,
-    DashboardComponent
+    HomePageComponent
+//     DashboardComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

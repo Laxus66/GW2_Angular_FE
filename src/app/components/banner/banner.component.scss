@@ -1,0 +1,39 @@
+.carousel {
+    margin-bottom: 10px;
+}
+
+.carousel-caption {
+    background-color: rgba(43, 43, 43, 0.5);
+    /* Màu trong suốt với độ mờ 0.5 */
+    color: white;
+}
+
+.carousel-caption h5 {
+    font-family: 'Pacifico', cursive;
+    font-size: 60px;
+    /* Áp dụng phông chữ nghệ thuật Pacifico */
+}
+
+// .carousel-item {
+//     position: relative;
+//     opacity: 0;
+//     animation: slide-animation 10s infinite;
+// }
+
+// @keyframes slide-animation {
+//     0% {
+//         opacity: 0;
+//     }
+
+//     20% {
+//         opacity: 1;
+//     }
+
+//     80% {
+//         opacity: 1;
+//     }
+
+//     100% {
+//         opacity: 0;
+//     }
+// }

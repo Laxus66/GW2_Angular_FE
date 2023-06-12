@@ -10,18 +10,18 @@ export class AuthorServiceService {
 
   constructor(private http: HttpClient) { }
   getAllAuthors(): Observable<IAuthor[]> {
-    return this.http.get<IAuthor[]>(`http://localhost:8088/author`)
+    return this.http.get<IAuthor[]>(`http://localhost:8088/api/author`)
   }
-  getOneAuthor(id: any): Observable<IAuthor[]> {
-    return this.http.get<IAuthor[]>(`http://localhost:8088/author/${id}`)
+  getOneAuthor(_id: string): Observable<IAuthor[]> {
+    return this.http.get<IAuthor[]>(`http://localhost:8088/api/author/${_id}`)
   }
-  removeAuthor(id: any): Observable<IAuthor[]> {
-    return this.http.delete<IAuthor[]>(`http://localhost:8088/author/${id}`)
+  removeAuthor(_id: string): Observable<IAuthor[]> {
+    return this.http.delete<IAuthor[]>(`http://localhost:8088/api/author/${_id}`)
   }
   updateAuthor(author: IAuthor): Observable<IAuthor[]> {
-    return this.http.put<IAuthor[]>(`http://localhost:8088/author/${author.id}`, author)
+    return this.http.put<IAuthor[]>(`http://localhost:8088/api/author/${author._id}/update`, author)
   }
   createAuthor(author: IAuthor): Observable<IAuthor[]> {
-    return this.http.post<IAuthor[]>(`http://localhost:8088/author`, author)
+    return this.http.post<IAuthor[]>(`http://localhost:8088/api/author/add`, author)
   }
 }

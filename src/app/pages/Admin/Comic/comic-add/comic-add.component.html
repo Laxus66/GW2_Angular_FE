@@ -1,1 +1,36 @@
-<p>comic-add works!</p>
+<div class="container-fluid">
+    <form (ngSubmit)="onHandleSubmit()">
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" class="form-control" id="id" name="id" disabled>
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group" *ngFor="let author of authors">
+            <label for="author">Author:</label>
+            <select *ngIf="author._id === comic.author_id" class="form-control" id="author_id" name="author_id">
+                <option value="">{{ author.name }}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="text" class="form-control" id="image" name="image" placeholder="chuỗi 1, chuỗi 2, chuỗi 3">
+        </div>
+
+        <div class="form-group" *ngFor="let category of categories">
+            <label for="author">Category:</label>
+            <select *ngIf="category._id === comic.category_id" class="form-control" id="author_id" name="author_id">
+                <option value="">{{ category.name }}</option>
+            </select>
+        </div>
+        <button type="submit" class=" m-3 btn btn-primary">Add</button>
+        <button class="btn btn-update bg-success btn-neutral"><a href="admin/comic">List Comic</a></button>
+    </form>
+</div>

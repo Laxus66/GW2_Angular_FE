@@ -1,8 +1,11 @@
 export interface IComic {
-    id: number;
+    _id?: string;
     name: string;
-    author_id: number;
-    image: string;
+    author_id?: string;
+    images: Array<{
+        id?: number;
+        image: string;
+    }>;
     description: string;
-    cate_id: number;
+    category_id?: string;
 }
