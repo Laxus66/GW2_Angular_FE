@@ -8,14 +8,15 @@
                 <th scope="col">Name</th>
                 <th scope="col">Author</th>
                 <th scope="col">Description</th>
+                <th scope="col">Story</th>
                 <th scope="col">Image</th>
                 <th scope="col">Category</th>
                 <th scope="col-2">Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let comic of comics">
-                <td>{{ comic._id }}</td>
+            <tr *ngFor="let comic of comics , index as i">
+                <td>{{i+1}}</td>
                 <td>{{ comic.name }}</td>
                 <!-- <td>{{ comic.author_id ? getAuthorName(comic.author_id) : '' }}</td>
                 <td class="text-truncate" style="max-width: 200px;">{{ comic.description }}</td>
@@ -23,7 +24,8 @@
                 <td>{{ comic.category_id ? getCategoryName(comic.category_id) : '' }}</td> -->
                 <td>{{ comic.author_id }}</td>
                 <td class="text-truncate" style="max-width: 200px;">{{ comic.description }}</td>
-                <td><img src="" alt=""></td>
+                <td class="text-truncate" style="max-width: 200px;">{{ comic.story }}</td>
+                <td><img src="{{comic.images}}" alt="" width="70px"></td>
                 <td>{{ comic.category_id }}</td>
                 <td class="text-left">
                     <button class="btn btn-update bg-primary btn-sm btn-neutral">

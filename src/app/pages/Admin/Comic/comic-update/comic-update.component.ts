@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IAuthor } from 'src/app/interfaces/author';
 import { ICategory } from 'src/app/interfaces/category';
 import { AuthorServiceService } from 'src/app/services/AuthorService/author-service.service';
@@ -21,6 +21,7 @@ export class ComicUpdateComponent {
     private comicService: ComicServiceService,
     private categoryService: CategoryServiceService,
     private authorService: AuthorServiceService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -64,6 +65,7 @@ export class ComicUpdateComponent {
   onHandleSubmit() {
     this.comicService.updateComic(this.comic).subscribe(comic => {
       console.log(comic);
+      this.router.navigate(['/admin/comic']);
     });
   }
 }

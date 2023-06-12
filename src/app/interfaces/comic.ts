@@ -2,6 +2,7 @@ export interface IComic {
     _id?: string;
     name: string;
     author_id?: string;
+    story: String;
     images: Array<{
         id?: number;
         image: string;

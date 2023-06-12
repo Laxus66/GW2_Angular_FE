@@ -10,13 +10,13 @@ import { AuthorServiceService } from 'src/app/services/AuthorService/author-serv
 export class AuthorAddComponent {
   author: any = {
     name: '',
-    description: ''
+    // description: ''
   }
 
   constructor(private authorService: AuthorServiceService, private router: Router) { }
 
   onHandleSubmit() {
-    this.authorService.createAuthor(this.author).subscribe((data:any) => {
+    this.authorService.createAuthor(this.author).subscribe((data: any) => {
       this.author = data
       this.router.navigate(['admin/author']);
     })
