@@ -1,5 +1,4 @@
-
-<div class="container">
+<div class="body">
     <div class="footer-content">
         <div class="footer-box">
             <h4>Contact us</h4>
@@ -14,15 +13,15 @@
 
         <div class="footer-box">
             <h4>Category</h4>
-            <ul>
-                <li>Category 1</li>
-                <li>Category 2</li>
-                <li>Category 3</li>
+            <table>
+                <tbody *ngIf="categories && categories.length">
+                    <tr *ngFor="let category of categories; index as i">
+                        <td style="color: white;"> {{ category.name }}</td>
 
-                <!-- Thêm các category khác -->
-            </ul>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
         <div class="footer-box">
             <h4>About us</h4>
             <form class="footer-form">
@@ -39,4 +38,3 @@
         <p>Copyright © 2023. All rights reserved.</p>
     </div>
 </div>
-
