@@ -1,5 +1,4 @@
-.container {
-
+.body {
     color: white;
     background-color: #252525;
     padding: 20px;
@@ -13,7 +12,12 @@
 }
 
 .footer-box {
+
     margin-bottom: 20px;
+}
+
+.footer-box td {
+    color: white;
 }
 
 .footer-box img {
