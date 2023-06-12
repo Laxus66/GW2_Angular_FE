@@ -10,6 +10,7 @@ import { UserServiceService } from 'src/app/services/UserService/user-service.se
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   userName: string = '';
+isAdmin: boolean = false;
 
   constructor(private userService: UserServiceService) {}
 
@@ -18,12 +19,14 @@ export class HeaderComponent implements OnInit {
     if (loggedInUser) {
       this.isLoggedIn = true;
       this.userName = JSON.parse(loggedInUser).name;
+      this.isAdmin = JSON.parse(loggedInUser).role === 'admin';
     }
 
     this.userService.getLoggedInUser().subscribe((user: IUser | null) => {
       if (user) {
         this.isLoggedIn = true;
         this.userName = user.name;
+        this.isAdmin = user.role === 'admin'; 
       }
     });
   }
@@ -31,5 +34,6 @@ export class HeaderComponent implements OnInit {
     this.userService.logout();
     this.isLoggedIn = false; 
     this.userName = ''; 
+    this.isAdmin = false;
   }
 }

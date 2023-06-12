@@ -23,6 +23,7 @@ import { HomePageComponent } from './pages/Base/home-page/home-page.component';
 import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component';
 
 
+
 const routes: Routes = [
   {
     path: '', component: BaseComponent, children: [
@@ -36,7 +37,7 @@ const routes: Routes = [
   },
   
   {
-    path: 'admin', component: AdminComponent, children: [
+    path: 'admin', component: AdminComponent,children: [
       { path: '', component: DashboardComponent },
       { path: 'comic', component: ComicListComponent },
       { path: 'comic/add', component: ComicAddComponent },

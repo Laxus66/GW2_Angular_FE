@@ -36,7 +36,16 @@ export class UserServiceService {
     );
   }
 
+  // getUsers(): Observable<IUser[]> {
+  //   return this.http.get<IUser[]>(`http://localhost:8088/api/users`);
+  // }
+  private apiUrl = 'http://localhost:8088/api/users';
   getUsers(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(`http://localhost:8088/api/users`);
+    return this.http.get<IUser[]>(this.apiUrl);
+  }
+
+  isAuthenicated(){
+    return JSON.parse(localStorage.getItem('user')||'{}');
+    
   }
 }

@@ -23,7 +23,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="row">
-      <div class="col-md-6 offset-md-3">
+      <div class="col-md-6 offset-md-2">
         <div class="search-box">
           <input type="text" placeholder="Search" />
           <button type="submit"><i class="fa fa-search"></i></button>
@@ -49,11 +49,21 @@
           </button>
         </li>
         <ng-template #loggedInUser>
-          <span *ngIf="isLoggedIn" class="nav-link"
-            >Xin chào, {{ userName }}</span
-          >
+          <span *ngIf="isLoggedIn" class="nav-link">
+            Xin chào, {{ userName }}
+          </span>
 
-          <button *ngIf="isLoggedIn" class="nav-link" (click)="logout()">Đăng xuất</button>
+          <button
+            *ngIf="isLoggedIn && isAdmin"
+            class="nav-link-button btn"
+            routerLink="/admin"
+          >
+            Trang admin
+          </button>
+
+          <button *ngIf="isLoggedIn" class="nav-link-button btn" (click)="logout()">
+            Đăng xuất
+          </button>
         </ng-template>
       </ul>
     </div>
