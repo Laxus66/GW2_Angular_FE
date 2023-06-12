@@ -16,8 +16,6 @@ export class ComicListComponent implements OnInit {
   comics: IComic[] = [];
   categories: ICategory[] = [];
   authors: IAuthor[] = [];
-  filteredComic: IComic[] = [];
-  searchTerm: string = '';
 
   constructor(
     private comicService: ComicServiceService,
@@ -34,36 +32,25 @@ export class ComicListComponent implements OnInit {
       this.comics = comics;
       this.categories = categories;
       this.authors = authors;
-      this.filteredComic = [...comics];
     });
   }
 
-  filterComicByCategory(categoryId: number) {
-    this.filteredComic = this.comics.filter(comic => comic.cate_id === categoryId);
-  }
-
-  filterComicByName() {
-    this.filteredComic = this.comics.filter(comic =>
-      comic.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
-  }
-
-  getCategoryName(categoryId: any): string {
-    const category = this.categories.find(cate => cate.id === categoryId);
+  getCategoryName(categoryId: string): string {
+    const category = this.categories.find(cate => cate._id === categoryId);
     return category ? category.name : '';
   }
 
-  getAuthorName(authorId: any): string {
-    const author = this.authors.find(auth => auth.id === authorId);
+  getAuthorName(authorId: string): string {
+    const author = this.authors.find(auth => auth._id === authorId);
     return author ? author.name : '';
   }
 
-  removeItem(id: any) {
+  removeItem(id: any): void {
     console.log(id);
     this.comicService.removeComic(id).subscribe(() => {
-      this.comics = this.comics.filter(comic => comic.id !== id);
-      this.filteredComic = this.filteredComic.filter(comic => comic.id !== id);
+      this.comics = this.comics.filter(comic => comic._id !== id);
     });
   }
+
 }
 

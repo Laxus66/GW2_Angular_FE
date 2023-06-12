@@ -2,7 +2,7 @@
     <form (ngSubmit)="onHandleSubmit()">
         <div class="form-group">
             <label for="id">ID:</label>
-            <input type="text" class="form-control" id="id" name="id" disabled>
+            <input type="text" class="form-control" [(ngModel)]="comic._id" id="id" name="id" disabled>
         </div>
         <div class="form-group">
             <label for="name">Name:</label>
@@ -11,7 +11,7 @@
         <div class="form-group" *ngFor="let author of authors">
             <label for="author">Author:</label>
             <select class="form-control" id="author_id" name="author_id" [(ngModel)]="comic.author_id">
-                <option [value]="author.id" [selected]="author.id === comic.author_id">{{ author.name }}</option>
+                <option [value]="author._id" [selected]="author._id === comic.author_id">{{ author.name }}</option>
             </select>
         </div>
 
@@ -27,7 +27,8 @@
         <div class="form-group" *ngFor="let category of categories">
             <label for="author">Category:</label>
             <select class="form-control" id="cate_id" name="cate_id" [(ngModel)]="comic.cate_id">
-                <option [value]="category.id" [selected]="category.id === comic.cate_id">{{ category.name }}</option>
+                <option [value]="category._id" [selected]="category._id === comic.category_id">{{ category.name }}
+                </option>
             </select>
         </div>
         <button type="submit" class=" m-3 btn btn-primary">Update</button>

@@ -10,7 +10,7 @@
         </div>
         <div class="form-group" *ngFor="let author of authors">
             <label for="author">Author:</label>
-            <select *ngIf="author.id === comic.author_id" class="form-control" id="author_id" name="author_id">
+            <select *ngIf="author._id === comic.author_id" class="form-control" id="author_id" name="author_id">
                 <option value="">{{ author.name }}</option>
             </select>
         </div>
@@ -26,7 +26,7 @@
 
         <div class="form-group" *ngFor="let category of categories">
             <label for="author">Category:</label>
-            <select *ngIf="category.id === comic.cate_id" class="form-control" id="author_id" name="author_id">
+            <select *ngIf="category._id === comic.category_id" class="form-control" id="author_id" name="author_id">
                 <option value="">{{ category.name }}</option>
             </select>
         </div>

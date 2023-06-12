@@ -10,18 +10,18 @@ export class ComicServiceService {
 
   constructor(private http: HttpClient) { }
   getAllComics(): Observable<IComic[]> {
-    return this.http.get<IComic[]>(`http://localhost:8088/comic`)
+    return this.http.get<IComic[]>(`http://localhost:8088/api/comic`)
   }
-  getOneComic(id: any): Observable<IComic[]> {
-    return this.http.get<IComic[]>(`http://localhost:8088/comic/${id}`)
+  getOneComic(_id: string): Observable<IComic[]> {
+    return this.http.get<IComic[]>(`http://localhost:8088/api/comic/${_id}`)
   }
-  removeComic(id: any): Observable<IComic[]> {
-    return this.http.delete<IComic[]>(`http://localhost:8088/comic/${id}`)
+  removeComic(_id: string): Observable<IComic[]> {
+    return this.http.delete<IComic[]>(`http://localhost:8088/api/comic/${_id}`)
   }
   updateComic(comic: IComic): Observable<IComic[]> {
-    return this.http.put<IComic[]>(`http://localhost:8088/comic/${comic.id}`, comic)
+    return this.http.put<IComic[]>(`http://localhost:8088/api/comic/${comic._id}/update`, comic)
   }
   createComic(comic: IComic): Observable<IComic[]> {
-    return this.http.post<IComic[]>(`http://localhost:8088/comic`, comic)
+    return this.http.post<IComic[]>(`http://localhost:8088/api/comic/add`, comic)
   }
 }

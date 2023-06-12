@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ComicServiceService } from 'src/app/services/ComicService/comic-service.service';
 
 @Component({
   selector: 'app-comic-page',
@@ -8,11 +9,12 @@ import { Component } from '@angular/core';
 export class ComicPageComponent {
   product: any = []
 
-  // constructor(private productService: ProductService) { }
+  constructor(private comicService: ComicServiceService) { }
 
-  // ngOnInit() {
-  // this.productService.getProduct().subscribe(data => {
-  // this.product = data
-  // })
-  // }
+  ngOnInit() {
+    this.comicService.getAllComics().subscribe((data: any) => {
+      this.product = data
+      console.log('data :>> ', data);
+    })
+  }
 }

@@ -1,1 +1,24 @@
 <p>author-list works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th><a routerLink="add"><button class="btn btn-primary">Add</button></a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let author of author , index as i">
+            <th>{{i+1}}</th>
+            <th>{{author.name}}</th>
+            <th>{{author.description}}</th>
+            <th></th>
+            <th>
+                <a routerLink="{{author._id}}/update"><button class="btn btn-primary">Update</button></a>
+                <button class="btn btn-danger" (click)="onRemove(author._id)">Delete</button>
+            </th>
+        </tr>
+    </tbody>
+</table>

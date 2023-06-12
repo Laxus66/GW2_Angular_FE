@@ -25,22 +25,22 @@ export class ComicUpdateComponent {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const comicId = +params['id'];
+      const comicId = params['id'];
       this.getComicDetails(comicId);
     });
     this.getAuthors();
     this.getCategories();
   }
 
-  getComicDetails(id: number) {
+  getComicDetails(id: string) {
     this.comicService.getOneComic(id).subscribe((data) => {
       this.comic = data;
       console.log(this.comic);
     });
   }
 
-  getCategoryName(categoryId: number): string {
-    const category = this.categories.find((c) => c.id === categoryId);
+  getCategoryName(categoryId: string): string {
+    const category = this.categories.find((c) => c._id === categoryId);
     return category ? category.name : '';
   }
 
@@ -50,8 +50,8 @@ export class ComicUpdateComponent {
     });
   }
 
-  getAuthorName(authorId: number): string {
-    const author = this.authors.find((c) => c.id === authorId);
+  getAuthorName(authorId: string): string {
+    const author = this.authors.find((c) => c._id === authorId);
     return author ? author.name : '';
   }
 
