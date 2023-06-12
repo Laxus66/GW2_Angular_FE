@@ -1,1 +1,12 @@
 <p>author-update works!</p>
+<p>author-update works!</p>
+<form action="" class="container" (ngSubmit)="onHandleSubmit()">
+    <p>Name</p>
+    <input type="text" class="form-control" [(ngModel)]="author.name" name="name">
+    <p>description</p>
+    <textarea name="" id="" cols="10" rows="4" class="form-control" [(ngModel)]="author.description"
+        name="description"></textarea>
+    <!-- <p>image</p>
+    <input type="file" class="form-control"> -->
+    <button class="btn btn-primary mt-3">Add</button>
+</form>
