@@ -21,6 +21,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { ComicAddComponent } from './pages/Admin/Comic/comic-add/comic-add.component'
 import { HomePageComponent } from './pages/Base/home-page/home-page.component';
 import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -37,7 +38,7 @@ const routes: Routes = [
   },
   
   {
-    path: 'admin', component: AdminComponent,children: [
+    path: 'admin', component: AdminComponent,canActivate:[AuthGuard],children: [
       { path: '', component: DashboardComponent },
       { path: 'comic', component: ComicListComponent },
       { path: 'comic/add', component: ComicAddComponent },

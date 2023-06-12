@@ -44,8 +44,7 @@ export class UserServiceService {
     return this.http.get<IUser[]>(this.apiUrl);
   }
 
-  isAuthenicated(){
-    return JSON.parse(localStorage.getItem('user')||'{}');
-    
+  isAuthenticated(){
+    return JSON.parse(localStorage.getItem('loggedInUser')||'{}');
   }
 }
