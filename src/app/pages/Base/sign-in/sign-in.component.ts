@@ -12,6 +12,7 @@ import { ISignin, IUser } from 'src/app/interfaces/user';
 export class SignInComponent {
   isLoggedIn: boolean = false;
   userName: string = '';
+  isAdmin: boolean = false;
 
   emailErrorMessage: string | null = null;
   passwordErrorMessage: string | null = null;
@@ -27,7 +28,6 @@ export class SignInComponent {
     private router: Router
   ) {}
 
-  
   onHandleSubmit() {
     const emailInput = this.formSignin.get('email');
     const passwordInput = this.formSignin.get('password');
@@ -49,7 +49,6 @@ export class SignInComponent {
           console.log(response);
           this.userService.setLoggedInUser(response.user);
           this.isLoggedIn = true;
-          this.userName = response.user.name;
 
           this.router.navigateByUrl('/');
         },

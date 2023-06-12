@@ -61,6 +61,15 @@
                 >
                   Password is required
                 </div>
+                <div
+                  *ngIf="
+                  formSignin.get('password')?.hasError('minlength') &&
+                    (formSignin.get('password')?.touched ||
+                    formSignin.get('password')?.dirty)
+                  "
+                >
+                  Min 6 characters
+                </div>
               </div>
 
               <div class="row mb-4">

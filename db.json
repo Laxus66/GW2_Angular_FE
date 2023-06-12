@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "_id":"647ef49a797a05e263485af3",
+      "name": "member",
+      "email": "member@gmail.com",
+      "role": "member"
+    },
+    {
+      "_id":"6482d1616af0313bce6d4f70",
+      "name": "phung viet phi",
+      "email": "phipvph26618@fpt.edu.vn",
+      "role": "member"
+    },
+    {
+      "_id":"6485bb94e6c26f9efabbfbfb",
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "role": "member"
+    },
+    {
+      "_id":"64860fd542d2e34987b71117",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "role": "admin"
+    }
+  ]
+}
