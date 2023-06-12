@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICategory } from 'src/app/interfaces/category';
 import { CategoryServiceService } from 'src/app/services/CategoryService/category-service.service';
 
@@ -12,12 +13,15 @@ export class CategoryAddComponent {
     name: ""
   };
 
-  constructor(private categoryService: CategoryServiceService) { }
+  constructor(private categoryService: CategoryServiceService,
+    private router: Router
+  ) { }
 
   onHandleSubmit() {
     console.log(this.categories);
     this.categoryService.createCategory(this.categories).subscribe((data) => {
       console.log(data);
+      this.router.navigate(['/admin/comic']);
     });
   }
 }

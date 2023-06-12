@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { IAuthor } from 'src/app/interfaces/author';
 import { ICategory } from 'src/app/interfaces/category';
 import { IComic } from 'src/app/interfaces/comic';
@@ -16,9 +18,9 @@ export class ComicAddComponent implements OnInit {
     name: '',
     author_id: '',
     description: '',
-    category_id: '',
     story: '',
-    images: []
+    images: [],
+    category_id: ''
   };
   categories: ICategory[] = [];
   authors: IAuthor[] = [];
@@ -26,29 +28,48 @@ export class ComicAddComponent implements OnInit {
   constructor(
     private comicService: ComicServiceService,
     private categoryService: CategoryServiceService,
-    private authorService: AuthorServiceService
+    private authorService: AuthorServiceService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.getCategories();
     this.getAuthors();
+    this.getCategories();
   }
 
-  getCategories() {
-    this.categoryService.getAllCategories().subscribe((data: ICategory[]) => {
-      this.categories = data;
+  getComicDetails(id: string) {
+    this.comicService.getOneComic(id).subscribe((data: any) => {
+      this.comic = data;
+      console.log(this.comic);
     });
   }
 
+  getCategoryName(categoryId: string): string {
+    const category = this.categories.find((c) => c._id === categoryId);
+    return category ? category.name : '';
+  }
+
+  getCategories() {
+    this.categoryService.getAllCategories().subscribe((data: any) => {
+      this.categories = data.categories;
+    });
+  }
+
+  getAuthorName(authorId: string): string {
+    const author = this.authors.find((c) => c._id === authorId);
+    return author ? author.name : '';
+  }
+
   getAuthors() {
-    this.authorService.getAllAuthors().subscribe((data: IAuthor[]) => {
-      this.authors = data;
+    this.authorService.getAllAuthors().subscribe((data: any) => {
+      this.authors = data.authors;
     });
   }
 
   onHandleSubmit() {
-    this.comicService.createComic(this.comic).subscribe((comic) => {
+    this.comicService.createComic(this.comic).subscribe(comic => {
       console.log(comic);
+      this.router.navigate(['/admin/comic']);
     });
   }
 }

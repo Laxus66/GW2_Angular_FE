@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ICategory } from 'src/app/interfaces/category';
 import { CategoryServiceService } from 'src/app/services/CategoryService/category-service.service';
 
@@ -15,7 +15,9 @@ export class CategoryUpdateComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private categoryService: CategoryServiceService
+    private categoryService: CategoryServiceService,
+    private router: Router
+
   ) { }
 
   ngOnInit() {
@@ -37,6 +39,7 @@ export class CategoryUpdateComponent implements OnInit {
     console.log(this.category);
     this.categoryService.updateCategory(this.category).subscribe(data => {
       console.log(data);
+      this.router.navigate(['/admin/comic']);
     })
   }
 }

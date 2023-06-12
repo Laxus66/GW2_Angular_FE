@@ -28,8 +28,11 @@ export class CategoryListComponent {
   }
 
   removeItem(id: any) {
-    this.categoryService.removeCategory(id).subscribe(() => {
-      this.categories = this.categories.filter(cate => cate._id !== id);
-    });
+    const confirm = window.confirm("Bạn có muốn xóa category này !")
+    if (confirm) {
+      this.categoryService.removeCategory(id).subscribe(() => {
+        this.categories = this.categories.filter(cate => cate._id !== id);
+      });
+    }
   }
 }
