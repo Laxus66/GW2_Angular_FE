@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthorServiceService } from 'src/app/services/AuthorService/author-service.service';
 
 @Component({
   selector: 'app-author-update',
@@ -9,26 +10,28 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AuthorUpdateComponent {
   author: any = {
-    _id: '',
     name: '',
-  };
-  constructor(private http: HttpClient , private route:ActivatedRoute) {}
+    description: ''
+  }
+
+  constructor(private router: Router, private route: ActivatedRoute, private authorService: AuthorServiceService) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params:any) => {
+    this.route.params.subscribe((params: any) => {
       const id = params['id'];
-      this.http.get<any>('http://localhost:8088/api/author/' + id)
-      .subscribe((data:any) => {
-        this.author = data;
-      });
+      this.authorService.getOneAuthor(id)
+        .subscribe((data: any) => {
+          this.author = data;
+        });
     })
-    
   }
 
   onHandleSubmit() {
-    this.http.put<any>('http://localhost:8088/api/author/' + this.author._id, this.author)
-      .subscribe((data:any) => {
-        console.log('Cập nhật thành công');
-      });
+    this.authorService.updateAuthor(this.author).subscribe((data: any) => {
+      this.author = data
+      console.log('data :>> ', data);
+      this.router.navigate(['admin/author']);
+    })
   }
+
 }
