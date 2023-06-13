@@ -46,8 +46,8 @@ export class ComicUpdateComponent {
   }
 
   getCategories() {
-    this.categoryService.getAllCategories().subscribe((data) => {
-      this.categories = data;
+    this.categoryService.getAllCategories().subscribe((data: any) => {
+      this.categories = data.categories;
     });
   }
 
@@ -57,8 +57,8 @@ export class ComicUpdateComponent {
   }
 
   getAuthors() {
-    this.authorService.getAllAuthors().subscribe((data) => {
-      this.authors = data;
+    this.authorService.getAllAuthors().subscribe((data: any) => {
+      this.authors = data.authors;
     });
   }
 
